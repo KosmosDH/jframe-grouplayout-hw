@@ -114,9 +114,9 @@ public class MainWindow extends JFrame {
         );
         northLayout.setHorizontalGroup(northLayout.createSequentialGroup()
                 .addComponent(button1, PS, PS, PS)
-                .addGap(8, 8, Short.MAX_VALUE)
+                .addGap(8)
                 .addComponent(button2, PS, PS, Short.MAX_VALUE)
-                .addGap(8, 8, Short.MAX_VALUE)
+                .addGap(8)
                 .addComponent(button3, PS, PS, PS)
         );
 
@@ -147,13 +147,13 @@ public class MainWindow extends JFrame {
                         .addComponent(check2, PS, PS, PS)
                         .addComponent(check3, PS, PS, PS)
                 )
-                        .addGap(30)
+                        .addGap(30, 30, Short.MAX_VALUE)
                 .addGroup(centerLayout.createParallelGroup()
                         .addComponent(check4, PS, PS, PS)
                         .addComponent(check5, PS, PS, PS)
                         .addComponent(check6, PS, PS, PS)
                 )
-                        .addGap(50)
+                        .addGap(50, 50, Short.MAX_VALUE)
                 .addGroup(centerLayout.createParallelGroup()
                         .addComponent(rButton1, PS, PS, PS)
                         .addComponent(rButton2, PS, PS, PS)
