@@ -30,6 +30,7 @@ public class MainWindow extends JFrame {
     private final JPanel northPanel;
     private final JPanel centerPanel;
     private final JPanel southPanel;
+    private final JPanel mainPanel;
 
 
     public MainWindow() {
@@ -37,17 +38,17 @@ public class MainWindow extends JFrame {
         setTitle("окно");
         setMinimumSize(new Dimension(400, 300));
 
+        mainPanel = new JPanel(new BorderLayout(0,10));
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
 
-        northPanel.setBackground(Color.WHITE);
-        centerPanel.setBackground(Color.WHITE);
-        southPanel.setBackground(Color.WHITE);
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        setContentPane(mainPanel);
 
-        add(northPanel, BorderLayout.NORTH);
-        add(centerPanel, BorderLayout.CENTER);
-        add(southPanel, BorderLayout.SOUTH);
+        mainPanel.add(northPanel, BorderLayout.NORTH);
+        mainPanel.add(centerPanel, BorderLayout.CENTER);
+        mainPanel.add(southPanel, BorderLayout.PAGE_END);
 
         check1 = new JCheckBox();
         check2 = new JCheckBox();
@@ -123,41 +124,76 @@ public class MainWindow extends JFrame {
         GroupLayout centerLayout = new GroupLayout(centerPanel);
         centerPanel.setLayout(centerLayout);
 
-        centerLayout.setVerticalGroup(centerLayout.createParallelGroup()
-                .addGroup(centerLayout.createSequentialGroup()
-                        .addComponent(check1, PS, PS, PS)
-                        .addComponent(check2, PS, PS, PS)
-                        .addComponent(check3, PS, PS, PS)
-                )
-                .addGroup(centerLayout.createSequentialGroup()
-                        .addComponent(check4, PS, PS, PS)
-                        .addComponent(check5, PS, PS, PS)
-                        .addComponent(check6, PS, PS, PS)
-                )
-                .addGroup(centerLayout.createSequentialGroup()
-                        .addComponent(rButton1, PS, PS, PS)
-                        .addComponent(rButton2, PS, PS, PS)
-                        .addComponent(rButton3, PS, PS, PS)
-                )
+        centerLayout.setVerticalGroup(centerLayout.createSequentialGroup()
+                        .addGroup(centerLayout.createParallelGroup()
 
+                                .addGroup(centerLayout.createSequentialGroup()
+                                        .addComponent(check1, PS, PS, PS)
+                                        .addComponent(check2, PS, PS, PS)
+                                        .addComponent(check3, PS, PS, PS)
+                                )
+                                .addGroup(centerLayout.createSequentialGroup()
+                                        .addComponent(check4, PS, PS, PS)
+                                        .addComponent(check5, PS, PS, PS)
+                                        .addComponent(check6, PS, PS, PS)
+                                )
+                                .addGroup(centerLayout.createSequentialGroup()
+                                        .addComponent(rButton1, PS, PS, PS)
+                                        .addComponent(rButton2, PS, PS, PS)
+                                        .addComponent(rButton3, PS, PS, PS)
+                                )
+                        )
+                        .addGap(50)
+                .addGroup(centerLayout.createParallelGroup()
+                        .addGroup(centerLayout.createSequentialGroup()
+                                .addComponent(rButton4, PS, PS, PS)
+                                .addComponent(rButton5, PS, PS, PS)
+                                .addComponent(rButton6, PS, PS, PS)
+                        )
+                        .addGroup(centerLayout.createSequentialGroup()
+                                .addComponent(textField1, PS, DS, PS)
+                                .addComponent(textField2, PS, PS, PS)
+                                .addComponent(textField3, PS, PS, PS)
+                                .addComponent(textField4, PS, PS, PS)
+                        )
+                )
         );
-        centerLayout.setHorizontalGroup(centerLayout.createSequentialGroup()
-                .addGroup(centerLayout.createParallelGroup()
-                        .addComponent(check1, PS, PS, PS)
-                        .addComponent(check2, PS, PS, PS)
-                        .addComponent(check3, PS, PS, PS)
-                )
-                        .addGap(30, 30, Short.MAX_VALUE)
-                .addGroup(centerLayout.createParallelGroup()
-                        .addComponent(check4, PS, PS, PS)
-                        .addComponent(check5, PS, PS, PS)
-                        .addComponent(check6, PS, PS, PS)
-                )
-                        .addGap(50, 50, Short.MAX_VALUE)
-                .addGroup(centerLayout.createParallelGroup()
-                        .addComponent(rButton1, PS, PS, PS)
-                        .addComponent(rButton2, PS, PS, PS)
-                        .addComponent(rButton3, PS, PS, PS)
+        centerLayout.setHorizontalGroup(centerLayout.createParallelGroup()
+
+                        .addGroup(centerLayout.createSequentialGroup()
+                                .addGroup(centerLayout.createParallelGroup()
+                                        .addComponent(check1, PS, PS, PS)
+                                        .addComponent(check2, PS, PS, PS)
+                                        .addComponent(check3, PS, PS, PS)
+                                )
+                                .addGap(30, 30, Short.MAX_VALUE)
+                                .addGroup(centerLayout.createParallelGroup()
+                                        .addComponent(check4, PS, PS, PS)
+                                        .addComponent(check5, PS, PS, PS)
+                                        .addComponent(check6, PS, PS, PS)
+                                )
+                                .addGap(50, 50, Short.MAX_VALUE)
+                                .addGroup(centerLayout.createParallelGroup()
+                                        .addComponent(rButton1, PS, PS, PS)
+                                        .addComponent(rButton2, PS, PS, PS)
+                                        .addComponent(rButton3, PS, PS, PS)
+                                )
+                        )
+                .addGap(50)
+                .addGroup(centerLayout.createSequentialGroup()
+                        .addGroup(centerLayout.createParallelGroup()
+                                .addComponent(rButton4, PS, PS, PS)
+                                .addComponent(rButton5, PS, PS, PS)
+                                .addComponent(rButton6, PS, PS, PS)
+                        )
+                        .addGap(30)
+                        .addGroup(centerLayout.createParallelGroup()
+                                .addComponent(textField1, DS, DS, Short.MAX_VALUE)
+                                .addComponent(textField2, PS, PS, Short.MAX_VALUE)
+                                .addComponent(textField3, PS, PS, Short.MAX_VALUE)
+                                .addComponent(textField4, PS, PS, Short.MAX_VALUE)
+
+                        )
                 )
 
         );
@@ -165,39 +201,21 @@ public class MainWindow extends JFrame {
         GroupLayout southLayout = new GroupLayout(southPanel);
         southPanel.setLayout(southLayout);
 
-        southLayout.setVerticalGroup(southLayout.createParallelGroup()
-                .addGroup(southLayout.createSequentialGroup()
-                        .addComponent(rButton4, PS, PS, PS)
-                        .addComponent(rButton5, PS, PS, PS)
-                        .addComponent(rButton6, PS, PS, PS)
-                )
-                .addGroup(southLayout.createSequentialGroup()
-                        .addComponent(textField1, PS, PS, PS)
-                        .addComponent(textField2, PS, PS, PS)
-                        .addComponent(textField3, PS, PS, PS)
-                        .addComponent(textField4, PS, PS, PS)
-                        .addGap(15)
-                        .addComponent(buttonExit, PS, PS, PS)
-                        .addGap(8)
-                )
-        );
-        southLayout.setHorizontalGroup(southLayout.createSequentialGroup()
-                .addGroup(southLayout.createParallelGroup()
-                        .addComponent(rButton4, PS, PS, PS)
-                        .addComponent(rButton5, PS, PS, PS)
-                        .addComponent(rButton6, PS, PS, PS)
-                )
-                        .addGap(30)
-                .addGroup(southLayout.createParallelGroup()
-                        .addComponent(textField1, PS, PS, Short.MAX_VALUE)
-                        .addComponent(textField2, PS, PS, Short.MAX_VALUE)
-                        .addComponent(textField3, PS, PS, Short.MAX_VALUE)
-                        .addComponent(textField4, PS, PS, Short.MAX_VALUE)
+        southLayout.setVerticalGroup(southLayout.createSequentialGroup()
 
+                .addGap(10)
+                .addComponent(buttonExit, PS, PS, PS)
+        );
+        southLayout.setHorizontalGroup(southLayout.createParallelGroup()
+
+                .addGroup(southLayout.createSequentialGroup()
+                        .addGap(0,0,Short.MAX_VALUE)
                         .addComponent(buttonExit, PS, PS, PS)
+                        .addGap(0,0,Short.MAX_VALUE)
                 )
 
         );
+
         pack();
         setLocationRelativeTo(null);
     }
